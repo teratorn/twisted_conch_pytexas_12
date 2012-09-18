@@ -1,0 +1,26 @@
+Run make_keys.py to generate client and server ssh keys, an authorized_keys file (allowing the client key), and a known_hosts file containing the server key.
+
+Run run_ade.py to start the ADE server.
+
+Run run_slave.py AS ROOT to connect as a slave to the server. Currently the slave
+code has to be run as root in order to have enough permission to allocate PTYs
+and start shell sessions (Are you a bad enough dude to fix this?).
+
+Then attempt to ssh to the ADE server using openssh client such as:
+
+    ssh -p 4422 -i ./client_id_rsa <TICKET>@localhost
+
+Where <TICKET> is replaced by the ticket printed in the server log for the slave connection.
+
+So long as the ticket you use is current and valid, it should proxy you, and spawn a reverse shell through the slave client's existing connection.
+
+Try out the ampdate.py and ampecho.py scripts for hitting the Date and Echo commands on the AMP-over-SSH server.
+
+Note: if you see strange errors like this in your server log:
+
+exceptions.TypeError: ('Could not adapt', <twisted.conch.avatar.ConchUser instance at 0x864b3ac>, <InterfaceClass twisted.conch.interfaces.ISession>)
+
+It most likely means you tried to shell in to the server using a username that was NOT a current and valid Ticket, and your client was denied trying to spawn a shell.
+
+Have fun, and let me know solutions you come up with using this ! :)
+    -teratorn 2012
