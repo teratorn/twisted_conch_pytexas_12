@@ -1,6 +1,6 @@
 Run make_keys.py to generate client and server ssh keys, an authorized_keys file (allowing the client key), and a known_hosts file containing the server key.
 
-Run run_ade.py to start the ADE server.
+Run run_ade.py to start the AmpDateEcho server.
 
 Run run_slave.py AS ROOT to connect as a slave to the server. Currently the slave
 code has to be run as root in order to have enough permission to allocate PTYs
