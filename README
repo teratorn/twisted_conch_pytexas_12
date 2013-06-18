@@ -1,4 +1,8 @@
-Run make_keys.py to generate client and server ssh keys, an authorized_keys file (allowing the client key), and a known_hosts file containing the server key.
+Video of talk here: http://www.youtube.com/watch?v=DUm-ZBEmVUE
+
+------
+
+Run make_keys.py to generate client and server ssh keys, an authorized_keys file (allowing the client key), and a known_hosts file (containing the server key).
 
 Run run_ade.py to start the AmpDateEcho server.
 
